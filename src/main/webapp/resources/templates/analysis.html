@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<div class="container" id="riskAnalysis">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>Risk Analysis</h4>
+		</div>
+		<div class="container">
+			
+			<div class="col-md-12">
+				<h4>
+					<%=risk.title %>
+					<br />
+					<small><%=risk.description %></small>
+				</h4>
+				<h5>
+					Primary Risk:
+				</h5>
+				<%=risk.primaryRisk.title %>
+				<br/>
+				<%
+					if(risk.secondaryRisk && risk.secondaryRisk!=null && risk.secondaryRisk.title){
+					
+				%>
+				<h5>
+					Secondary Risk:
+				</h5>
+				<%=risk.secondaryRisk.title %>
+				<%
+					}
+				%>
+				
+			</div>
+			<hr/>
+			<div class="col-md-6">
+					
+					<div id="grid-container">
+						<h4>Relative Risk
+						</h4>
+					</div>
+			</div>
+			<div class="col-md-6">
+					
+					<div id="graph">
+						<h4>Quantitative Risk</h4>
+					</div>
+			</div>
+		</div>
+		<p />
+		<div class="panel-body">
+			<table class="table">
+				<tr class="active">
+					<th>&nbsp;</th>
+					<th>Minimum</th>
+					<th>Average</th>
+					<th>Mode</th>
+					<th>Maximum</th>
+				</tr>
+				<tr>
+					<th colspan="5" class="active">Primary</th>
+				<tr>
+				<tr>
+					<th>Loss Events/Year</th>
+					<td><%=risk.primaryRisk.lossFrequency.minimum.toFixed(2)%></td>
+					<td><%=risk.primaryRisk.lossFrequency.mean.toFixed(2)%></td>
+					<td><%=risk.primaryRisk.lossFrequency.mode.toFixed(2)%></td>
+					<td><%=risk.primaryRisk.lossFrequency.maximum.toFixed(2)%></td>
+				</tr>
+				<tr>
+					<th>Loss Magnitude</th>
+					<td><%=formatCurrency(risk.primaryRisk.lossMagnitude.minimum)%></td>
+					<td><%=formatCurrency(risk.primaryRisk.lossMagnitude.mean)%></td>
+					<td><%=formatCurrency(risk.primaryRisk.lossMagnitude.mode)%></td>
+					<td><%=formatCurrency(risk.primaryRisk.lossMagnitude.maximum)%></td>
+				</tr>
+				<%
+					if(risk.secondaryRisk && risk.secondaryRisk!=null){
+					
+				%>
+				<tr>
+					<th colspan="5" class="active">Secondary</th>
+				<tr>
+				<tr>
+					<th>Loss Events/Year</th>
+					<td><%=risk.secondaryRisk.lossFrequency.minimum.toFixed(2)%></td>
+					<td><%=risk.secondaryRisk.lossFrequency.mean.toFixed(2)%></td>
+					<td><%=risk.secondaryRisk.lossFrequency.mode.toFixed(2)%></td>
+					<td><%=risk.secondaryRisk.lossFrequency.maximum.toFixed(2)%></td>
+
+				</tr>
+				<tr>
+					<th>Loss Magnitude</th>
+					<td><%=formatCurrency(risk.secondaryRisk.lossMagnitude.minimum)%></td>
+					<td><%=formatCurrency(risk.secondaryRisk.lossMagnitude.mean)%></td>
+					<td><%=formatCurrency(risk.secondaryRisk.lossMagnitude.mode)%></td>
+					<td><%=formatCurrency(risk.secondaryRisk.lossMagnitude.maximum)%></td>
+				</tr>
+				<%
+					}
+				%>
+				<tr class="danger">
+					<th>Annualized Loss Exposure</th>
+					<td><%=formatCurrency(risk.exposure[0])%></td>
+					<td><%=formatCurrency(risk.exposure[1])%></td>
+					<td><%=formatCurrency(risk.exposure[2])%></td>
+					<td><%=formatCurrency(risk.exposure[3])%></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

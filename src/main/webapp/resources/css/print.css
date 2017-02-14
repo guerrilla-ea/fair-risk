@@ -1,0 +1,7 @@
+#header, #dialog-modal, #dialog-modal-secondary, #dialog_error, #header-info, #panel-footer, #risk-input-screen, nav,.noprint {
+	display: none;
+}
+
+div{
+	display: inline;
+}

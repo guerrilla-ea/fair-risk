@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<div class="panel panel-default" id="risk-input-screen">
+	<div class="panel-heading">
+		<h4>
+			Scenario Information<br /> <small>Enter scenario description and
+				risk information for frequency and magnitude for both
+				primary and secondary risks.</small>
+		</h4>
+	</div>
+
+	<div class="panel-body" id="risk-input-panel">
+
+		<form id="risk-submit-form" role="form">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="title" class="control-label">Scenario Name</label> <input
+						type="text" class="form-control input-sm" placeholder="Name"
+						id="title" required value="<%=risk.title %>">
+				</div>
+				<div class="form-group">
+					<label for="description" class="control-label">Description</label>
+					<textarea rows="4" class="form-control input-sm" id="description"
+						required><%=risk.description %></textarea>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row-sm-6" id="primaryRisk">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h5>Primary Risk</h5>
+							<label for="primaryLossTitle" class="control-label">Risk Name</label><input type="text" class="form-control input-sm" placeholder="Risk Name" id="primaryLossTitle" required value="<%=risk.primaryRisk.title %>">
+						</div>
+						<div class="panel-body">
+							<div class="col-sm-8" id="primaryRisklef">
+								<h6>Loss Event Frequency</h6>
+								<div class="form-group">
+									<!--<label for="lefMin" class="col-sm-2 control-label">Minimum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="plefMin"
+											placeholder="Minimum" required value="<%=risk.primaryRisk.lossFrequency.low %>">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lefMax" class="col-sm-2 control-label">Maximum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="plefMax"
+											placeholder="Maximum" required value="<%=risk.primaryRisk.lossFrequency.high %>">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lefLikely" class="col-sm-2 control-label">Most
+								Likely</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm"
+											id="plefLikely" placeholder="Likely" required value="<%=risk.primaryRisk.lossFrequency.likely %>">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8" id="primaryRiskLem">
+								<h6>Loss Event Magnitude</h6>
+								<div class="input-group">
+									<!--<label for="lemMin" class="col-sm-2 control-label">Minimum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="plemMin"
+											placeholder="Minimum" required value="<%=risk.primaryRisk.lossMagnitude.low %>">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lemMax" class="col-sm-2 control-label">Maximum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="plemMax"
+											placeholder="Maximum" required value="<%=risk.primaryRisk.lossMagnitude.high %>">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lemLikely" class="col-sm-2 control-label">Most
+								Likely</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm"
+											id="plemLikely" placeholder="Likely" required value="<%=risk.primaryRisk.lossMagnitude.likely %>">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="text-center row-sm-6">
+						<button type="reset" class="btn btn-reset">Reset</button>
+						<button type="submit" class="btn btn-default"
+							data-loading-text="Analyzing..." id="submit">Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row-sm-6" id="secondaryRisk">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h5>Secondary Risk</h5>
+							<label for="secondaryLossTitle" class="control-label">Risk Name</label><input type="text" class="form-control input-sm" placeholder="Risk Name" id="secondaryLossTitle">
+						</div>
+						<div class="panel-body">
+							<div class="col-sm-8" id="secondaryRiskLef">
+								<h6>Loss Event Frequency</h6>
+								<div class="form-group">
+									<!--<label for="lefMin" class="col-sm-2 control-label">Minimum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="slefMin"
+											placeholder="Minimum">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lefMax" class="col-sm-2 control-label">Maximum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="slefMax"
+											placeholder="Maximum">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lefLikely" class="col-sm-2 control-label">Most
+								Likely</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm"
+											id="slefLikely" placeholder="Likely">
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8" id="secondaryRiskLem">
+								<h6>Loss Event Magnitude</h6>
+								<div class="form-group">
+									<!--<label for="lemMin" class="col-sm-2 control-label">Minimum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="slemMin"
+											placeholder="Minimum">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lemMax" class="col-sm-2 control-label">Maximum</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm" id="slemMax"
+											placeholder="Maximum">
+									</div>
+								</div>
+								<div class="form-group">
+									<!--<label for="lemLikely" class="col-sm-2 control-label">Most
+								Likely</label>-->
+									<div class="col-sm-12">
+										<input type="text" class="form-control input-sm"
+											id="slemLikely" placeholder="Likely">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="panel-footer" id="panel-footer">
+		<div class="bs-callout">
+			<h5>How it works</h5>
+			<p>This tool applies the methods to perform a quantitative risk
+				analysis based on inputs of loss event frequency and loss event
+				magnitude for a single primary and secondary risk. The tool uses the
+				data for a PERT analysis followed by a Monte-Carlo simulation to
+				produce a graph and analysis of the total loss exposure for the
+				risks. For additional details, please refer to the links in the Reference section above.</p>
+		</div>
+	</div>
+</div>
