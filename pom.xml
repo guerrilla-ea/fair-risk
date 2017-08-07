@@ -240,6 +240,11 @@
                         <artifactId>maven-war-plugin</artifactId>
                         <version>${version.war.plugin}</version>
                         <configuration>
+                        	<webResources>
+                        		<resource>
+                        			<directory>src/main/webroot</directory>
+                        		</resource>
+                        	</webResources>
                             <outputDirectory>deployments</outputDirectory>
                             <warName>ROOT</warName>
                         </configuration>
