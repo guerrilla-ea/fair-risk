@@ -1,8 +1,8 @@
 requirejs.config({
 	paths: {
-		jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
+		jquery: 'libs/jquery.min.js',
 		underscore: 'libs/underscore',
-		bootstrap: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js',
+		bootstrap: 'libs/bootstrap.min.js',
 		backbone: 'libs/backbone',
 		d3: 'libs/d3.min',
 		risk: 'app/models/risk',
