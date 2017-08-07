@@ -1,8 +1,8 @@
 requirejs.config({
 	paths: {
-		jquery: 'libs/jquery.min.js',
+		jquery: 'libs/jquery.min',
 		underscore: 'libs/underscore',
-		bootstrap: 'libs/bootstrap.min.js',
+		bootstrap: 'libs/bootstrap.min',
 		backbone: 'libs/backbone',
 		d3: 'libs/d3.min',
 		risk: 'app/models/risk',
